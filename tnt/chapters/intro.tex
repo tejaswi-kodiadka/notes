@@ -1,0 +1,52 @@
+\chapter{Arithmetical Functions}
+
+\begin{definition}
+  A function is said to be arithmetical, if $f:\N\rightarrow\C$.
+  \begin{itemize}
+    \item $f$ is said to be additive if $f(mn)=f(m)+f(n)\forall m,n$ such that $(m,n)=1$.
+    \item $f$ is said to be multiplicative if $f(mn)=f(m)f(n)\forall m,n$ such that $(m,n)=1$.
+    \item $f$ is said to be completely additive or multiplicative if additive or multiplicative
+      property holds for all $m,n\in\N$
+  \end{itemize}
+\end{definition}
+
+\begin{examples} Some arithmetical functions: \\
+  \begin{enumerate}
+    \item $\omega:\N\rightarrow\C$, $\omega(n)=\#\text{distincty prime factors of }n$. \\
+      $\bullet$ Additive.
+    \item $\Omega:\N\rightarrow\C$, $\Omega(n)=\#\text{prime factors of }n\text{ with multiplicity.}$ \\
+      $\bullet$ Completely additive.
+    \item $\log:\N\rightarrow\C$ \\
+      $\bullet$ Completely additive.
+    \item $\mu:\N\rightarrow\C$ - Mobius function \\
+      \[\mu(n)=\begin{cases}
+        (-1)^{\omega(n)} & n\text{ is squarefree} \\
+        0 & \text{otherwise}
+      \end{cases}\]
+      $\bullet$ Multiplicative.
+    \item $\Lambda:\N\rightarrow\C$ - von Mongoldt function \\
+      \[\Lambda(n)=\begin{cases}
+        \log(p) & \text{if }n=p^{\alpha}\text{ for some prime p} \\
+        0 & \text{otherwise}
+      \end{cases}\]
+      $\bullet$ Neither multiplicative nor additive.
+    \item $\lambda(n):\N\rightarrow\C$ - Lioville's function \\
+      \[ \lambda(n)=\begin{cases}
+        1 & n=1 \\
+        (-1)^{\alpha_1+\alpha_2+\cdots+\alpha_k} & \alpha_i\text{ such that }n=\prod_{i\leq k}p_i^{\alpha_i}
+      \end{cases}\]
+      $\bullet$ Completely multiplicative.
+    \item $\varphi:\N\rightarrow\C$ - Euler's totient function \\
+      \begin{eqnarray*}
+        \varphi(n) &=& |\left\{ 1\leq k\leq n:(n,k)=1\right\}| \\
+             &=& n\prod_{p|n}\left( 1- \frac{1}{p}\right) \text{, and }\varphi(1)=1.
+      \end{eqnarray*}
+      $\bullet\varphi(mn)=\varphi(m)\varphi(n)\frac{(m,n)}{\varphi(m,n)}$
+    \item $f:\N\rightarrow\C$, $f(n)=n^{-s}$, $s\in\C$. \\
+      $\bullet$ Completely multiplicative.
+  \end{enumerate}
+\end{examples}
+
+\begin{theorem}
+  If $n\geq 1$, $\displaystyle\sum_{d|n} \mu(d)=I(n):=\left[\frac{1}{n}\right]$.
+\end{theorem}

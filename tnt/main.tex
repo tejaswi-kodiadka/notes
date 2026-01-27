@@ -1,0 +1,64 @@
+\documentclass[a4paper,12pt]{report}
+
+\usepackage{
+  amsmath,
+  amsthm,
+  amssymb,
+  %graphicx,
+  %float,
+  %tikz,
+  %tkz-euclide,
+  hyperref,
+  mathpazo,
+  enumitem,
+  %tikz-3dplot,
+}
+
+\title{\Huge\textbf{Topics in Number Theory}}
+\author{Tejaswi}
+\date{January Semester 2026}
+\hyphenpenalty=1000
+
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{proposition}{Proposition}[chapter]
+\newtheorem{lemma}{Lemma}[chapter]
+\newtheorem*{corollary}{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem*{example}{Example}
+\newtheorem*{examples}{Examples}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\renewcommand\qedsymbol{$\blacksquare$}
+\renewcommand\bibname{References}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Ps}{\mathbb{P}}
+
+\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
+
+\begin{document}
+  \maketitle
+
+  \pagenumbering{roman}
+  \input{chapters/preface.tex}
+
+  \tableofcontents
+  \newpage
+
+  \pagenumbering{arabic}
+
+  \input{chapters/intro.tex}
+  \input{chapters/ao&i.tex}
+
+  %\bibliographystyle{alpha}
+  %\bibliography{main}
+\end{document}
