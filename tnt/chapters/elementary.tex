@@ -1,0 +1,116 @@
+\chapter{Elementary Methods}
+
+\section{Arithmetic Functions}
+
+\begin{definition}
+  A function is said to be arithmetic, if $f:\N\rightarrow\C$.
+  \begin{itemize}
+    \item $f$ is said to be additive if $f(mn)=f(m)+f(n)$ $\forall m,n$ such that $(m,n)=1$.
+    \item $f$ is said to be multiplicative if $f(mn)=f(m)f(n)$ $\forall m,n$ such that $(m,n)=1$.
+    \item $f$ is said to be completely additive or multiplicative if additive or multiplicative
+      property holds for all $m,n\in\N$
+  \end{itemize}
+\end{definition}
+
+\begin{examples} Some arithmetic functions:
+  \begin{enumerate}
+    \item $\omega:\N\rightarrow\C$, $\omega(n)=\#\text{distincty prime factors of }n$. \\
+      Additive.
+    \item $\Omega:\N\rightarrow\C$, $\Omega(n)=\#\text{prime factors of }n\text{ with multiplicity.}$ \\
+      Completely additive.
+    \item $\log:\N\rightarrow\C$ \\
+      Completely additive.
+    \item $\mu:\N\rightarrow\C$ - Mobius function
+      \[\mu(n)=\begin{cases}
+        (-1)^{\omega(n)} & n\text{ is squarefree} \\
+        0 & \text{otherwise}
+      \end{cases}\]
+      Multiplicative.
+    \item $\Lambda:\N\rightarrow\C$ - von Mongoldt function
+      \[\Lambda(n)=\begin{cases}
+        \log(p) & \text{if }n=p^{\alpha}\text{ for some prime p} \\
+        0 & \text{otherwise}
+      \end{cases}\]
+      Neither multiplicative nor additive.
+    \item $\lambda(n):\N\rightarrow\C$ - Lioville's function
+      \[ \lambda(n)=\begin{cases}
+        1 & n=1 \\
+        (-1)^{\alpha_1+\alpha_2+\cdots+\alpha_k} & \alpha_i\text{ such that }n=\prod_{i\leq k}p_i^{\alpha_i}
+      \end{cases}\]
+      Completely multiplicative.
+    \item $\varphi:\N\rightarrow\C$ - Euler's totient function
+      \begin{eqnarray*}
+        \varphi(n) &=& |\left\{ 1\leq k\leq n:(n,k)=1\right\}| \\
+             &=& n\prod_{p|n}\left( 1- \frac{1}{p}\right) \text{, and }\varphi(1)=1.
+      \end{eqnarray*}
+      $\varphi(mn)=\varphi(m)\varphi(n)\frac{(m,n)}{\varphi(m,n)}$
+    \item $f:\N\rightarrow\C$, $f(n)=n^{-s}$, $s\in\C$. \\
+      Completely multiplicative.
+  \end{enumerate}
+\end{examples}
+
+\begin{theorem}
+  If $n\geq 1$, $\displaystyle{\sum_{d|n}} \mu(d)=I(n):=\left[\frac{1}{n}\right]$.
+\end{theorem}
+
+\begin{proof}
+  When $n=1$, the summation is equal to $1=I(1)$.
+  Let $n=\displaystyle{\prod_{i=1} ^m}p_i^{\alpha_i}$ for some $m\in\N$, and let
+  $N=\displaystyle{\prod_{i=1} ^m}p_i$. Now,
+  \begin{eqnarray*}
+    \sum_{d|n}\mu(d) = \sum_{d|N}\mu(d) &=& 1+\sum_{1\leq i\leq m}\mu(p_i)+\sum_{1\leq i,j\leq m}\mu(p_ip_j)+\cdots+\mu(N) \\
+                              &=& 1-\begin{pmatrix}m\\1\end{pmatrix}+\begin{pmatrix}m\\2\end{pmatrix}-\cdots+(-1)^m \\
+                              &=& (1+(-1))^m = 0 = I(n)
+  \end{eqnarray*}
+\end{proof}
+
+\begin{definition}[Number Field]
+  A finite field extension of $Q$ is known as a number field.
+\end{definition}
+
+\begin{definition}
+  An integer $\alpha$ is said to be algebraic if $f(\alpha)=0$ for some monic irreducible
+  $f\in\Z[x]$.
+\end{definition}
+
+\begin{definition}
+  Given a number field $K$, the set
+  \[\theta_k:=\{\alpha\in K:\alpha\text{ is an algebraic integer}\}\]
+  is known as its ring of integers.
+\end{definition}
+
+\begin{theorem}
+  Given $\zeta(s)>0\forall s>1$, there are inifinetely many primes.
+\end{theorem}
+
+\begin{proof}
+  By Euler product formula,
+  \begin{eqnarray*}
+    \log\zeta(s) &=& \sum_p \log\left(1-\frac{1}{p^s}\right) = \sum_p\sum_{n=1}  ^{\infty}\frac{1}{np^{ns}} \\
+             &=& \sum_p\frac{1}{p^s}+\sum_p\sum_{n\geq2}\frac{1}{np^{ns}}
+  \end{eqnarray*}
+  If $s>1$,
+  \begin{eqnarray*}
+    \sum_p\sum_{n\geq2}\frac{1}{np^{ns}} &\leq& \sum_p\sum_{n\geq2}\frac{1}{p^n} \\
+                               &=& \sum_p \frac{1}{p(p-1)} \leq \sum_p\frac{2}{p^2}<\infty
+  \end{eqnarray*}
+  \begin{eqnarray*}
+    &\implies& \lim_{s\rightarrow1^+}\log\zeta(s)=+\infty \\
+    &\implies& \sum_p\frac{1}{p}=+\infty
+  \end{eqnarray*}
+  Hence, there are infintely many primes.
+\end{proof}
+
+\subsection{Infinite Products}
+
+\section{Ordering of Arithmetical Functions}
+
+\subsection{Summation Tools}
+
+\subsection{Abel Summation}
+
+\subsection{Euler-Maclaurin Summation}
+
+\section{Prime Numbers}
+
+\[ \blacktriangle \blacktriangledown \blacktriangle \]

@@ -9,9 +9,9 @@
   %tikz,
   %tkz-euclide,
   hyperref,
-  mathpazo,
+  tgpagella,
+  eulervm,
   enumitem,
-  %tikz-3dplot,
 }
 
 \title{\Huge\textbf{Topics in Number Theory}}
@@ -49,16 +49,17 @@
   \maketitle
 
   \pagenumbering{roman}
-  \input{chapters/preface.tex}
 
   \tableofcontents
   \newpage
 
   \pagenumbering{arabic}
 
-  \input{chapters/intro.tex}
-  \input{chapters/ao&i.tex}
+  \input{chapters/elementary.tex}
+  \input{chapters/analytic.tex}
+  \input{chapters/advanced.tex}
 
-  %\bibliographystyle{alpha}
-  %\bibliography{main}
+  \nocite{apostol, nathanson, murty}
+  \bibliographystyle{apalike}
+  \bibliography{tnt}
 \end{document}
