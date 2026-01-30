@@ -16,49 +16,56 @@
   \begin{enumerate}
     \item $\omega:\N\rightarrow\C$, $\omega(n)=\#\text{distincty prime factors of }n$. \\
       Additive.
+
     \item $\Omega:\N\rightarrow\C$, $\Omega(n)=\#\text{prime factors of }n\text{ with multiplicity.}$ \\
       Completely additive.
+
     \item $\log:\N\rightarrow\C$ \\
       Completely additive.
+
     \item $\mu:\N\rightarrow\C$ - Mobius function
       \[\mu(n)=\begin{cases}
         (-1)^{\omega(n)} & n\text{ is squarefree} \\
         0 & \text{otherwise}
       \end{cases}\]
       Multiplicative.
+
     \item $\Lambda:\N\rightarrow\C$ - von Mongoldt function
       \[\Lambda(n)=\begin{cases}
         \log(p) & \text{if }n=p^{\alpha}\text{ for some prime p} \\
         0 & \text{otherwise}
       \end{cases}\]
       Neither multiplicative nor additive.
+
     \item $\lambda(n):\N\rightarrow\C$ - Lioville's function
       \[ \lambda(n)=\begin{cases}
         1 & n=1 \\
-        (-1)^{\alpha_1+\alpha_2+\cdots+\alpha_k} & \alpha_i\text{ such that }n=\prod_{i\leq k}p_i^{\alpha_i}
+        (-1)^{\alpha_1+\alpha_2+\cdots+\alpha_k} & \alpha_i\text{ such that }n=\displaystyle{\prod_{i\le k}p_i^{\alpha_i}}
       \end{cases}\]
       Completely multiplicative.
+
     \item $\varphi:\N\rightarrow\C$ - Euler's totient function
       \begin{eqnarray*}
-        \varphi(n) &=& |\left\{ 1\leq k\leq n:(n,k)=1\right\}| \\
+        \varphi(n) &=& |\left\{ 1\le k\le n:(n,k)=1\right\}| \\
              &=& n\prod_{p|n}\left( 1- \frac{1}{p}\right) \text{, and }\varphi(1)=1.
       \end{eqnarray*}
       $\varphi(mn)=\varphi(m)\varphi(n)\frac{(m,n)}{\varphi(m,n)}$
+
     \item $f:\N\rightarrow\C$, $f(n)=n^{-s}$, $s\in\C$. \\
       Completely multiplicative.
   \end{enumerate}
 \end{examples}
 
 \begin{theorem}
-  If $n\geq 1$, $\displaystyle{\sum_{d|n}} \mu(d)=I(n):=\left[\frac{1}{n}\right]$.
+  If $n\ge 1$, $\displaystyle{\sum_{d|n}} \mu(d)=I(n):=\left[\frac{1}{n}\right]$.
 \end{theorem}
 
 \begin{proof}
   When $n=1$, the summation is equal to $1=I(1)$.
-  Let $n=\displaystyle{\prod_{i=1} ^m}p_i^{\alpha_i}$ for some $m\in\N$, and let
-  $N=\displaystyle{\prod_{i=1} ^m}p_i$. Now,
+  Let $n=\displaystyle{\prod_{i=1} ^m p_i^{\alpha_i}}$ for some $m\in\N$, and let
+  $N=\displaystyle{\prod_{i=1} ^mp_i}$. Now,
   \begin{eqnarray*}
-    \sum_{d|n}\mu(d) = \sum_{d|N}\mu(d) &=& 1+\sum_{1\leq i\leq m}\mu(p_i)+\sum_{1\leq i,j\leq m}\mu(p_ip_j)+\cdots+\mu(N) \\
+    \sum_{d|n}\mu(d) = \sum_{d|N}\mu(d) &=& 1+\sum_{1\le i\le m}\mu(p_i)+\sum_{1\le i,j\le m}\mu(p_ip_j)+\cdots+\mu(N) \\
                               &=& 1-\begin{pmatrix}m\\1\end{pmatrix}+\begin{pmatrix}m\\2\end{pmatrix}-\cdots+(-1)^m \\
                               &=& (1+(-1))^m = 0 = I(n)
   \end{eqnarray*}
@@ -92,7 +99,7 @@
   If $s>1$,
   \begin{eqnarray*}
     \sum_p\sum_{n\geq2}\frac{1}{np^{ns}} &\leq& \sum_p\sum_{n\geq2}\frac{1}{p^n} \\
-                               &=& \sum_p \frac{1}{p(p-1)} \leq \sum_p\frac{2}{p^2}<\infty
+                               &=& \sum_p \frac{1}{p(p-1)} \le \sum_p\frac{2}{p^2}<\infty
   \end{eqnarray*}
   \begin{eqnarray*}
     &\implies& \lim_{s\rightarrow1^+}\log\zeta(s)=+\infty \\
@@ -101,16 +108,230 @@
   Hence, there are infintely many primes.
 \end{proof}
 
-\subsection{Infinite Products}
+\section{Infinite Products}
+
+Let $\alpha_1,\alpha_2,\ldots$ be a sequence in $\R$, and let $P(n)=\displaystyle{\prod_{k=1} ^{\infty}\alpha_k}$.
+If $\displaystyle{\lim_{k\rightarrow\infty}\prod_{k=1} ^{\infty}\alpha_k}$ converges, then we
+say that $\displaystyle{\prod_{k=1} ^{\infty}\alpha_k}$ converges.
+
+If $\displaystyle{\prod_{k=1} ^{\infty}(1+a_k)}$ converges, then $\forall k$, $a_k\neq-1$,
+and for all $k\geq2$, \\
+$1+a_k=\frac{P(k)}{P(k-1)}\implies\displaystyle{\lim_{k\rightarrow\infty}(1+a_k)}=1$.
+Thus, if $\displaystyle\prod_{k=1} ^{\infty}(1+a_k)$ converges, then $\displaystyle{\lim_{k\rightarrow\infty}(a_k)}=0$
+
+\begin{theorem}
+  Given $a_k\ge 0$ $\forall k\geq1$, $\displaystyle{\prod_{k=1} ^{\infty}(a_k+1)}$ converges
+  iff $\displaystyle{\sum_{k=1} ^{\infty} a_k<0}$.
+\end{theorem}
+
+\begin{proof}
+  Let $S(n):=\displaystyle{\sum_{k=1} ^n a_k}$, and $p(n)):=\displaystyle{\prod_{k=1} ^n (1+a_k)}$.
+  \begin{eqnarray*}
+    0\leq\displaystyle{\sum_{k=1} ^n a_k} &\leq& \displaystyle{\prod_{k=1} ^n (1+a_k)} \\
+    &\leq& \displaystyle{\prod_{k=1} ^n e^{a_k}} \\
+    &=& e^{\left(\displaystyle{\sum_{k=1} ^n a_k}\right)}
+  \end{eqnarray*}
+  \[ \implies 0\le S(n)\le P(n) \le e^{s(n)} \]
+  Since both $S(n)$ and $P(n)$ are monotonically increasing, $\displaystyle{\lim_{n\rightarrow\infty}}P(n)$
+    exists iff $\displaystyle{\lim_{n\rightarrow\infty}}S(n)$ exists and is nonzero.
+\end{proof}
+
+\begin{corollary}
+  $\displaystyle{\prod_{k=1} ^{\infty}(1+|a_k|)}<\infty\Leftrightarrow\displaystyle{\sum_{k=1} ^{\infty}|a_k|}<\infty$.
+\end{corollary}
+
+\begin{theorem}
+  If $\displaystyle{\prod_{k=1} ^{\infty}(1+|a_k|)}$ converges, then
+  $\displaystyle{\prod_{k=1} ^{\infty}(1+a_k)}$ also converges.
+\end{theorem}
+
+\begin{proof}
+  Let $P(n)=\displaystyle{\prod_{k=1} ^{n}(1+a_k)}$, and $R(n)=\displaystyle{\prod_{k=1} ^{n}(1+|a_k|)}$.\\
+  $\displaystyle{\sum_{n=2} ^{\infty}(R(n)-R(n-1))}<\infty$, since it is given that $\{R(n)\}_{n\ge 2}$
+  converges. \\
+  Now,
+  \begin{eqnarray*}
+    0 \le |P(n)-P(n-1)| &=& |a_n P(n-1)| \\
+    &=& \left| a_n \displaystyle{\prod_{k=1} ^{n-1} (1+a_k)}\right| \\
+    &\leq& |a_n| \displaystyle{\prod_{k=1} ^{n-1} (1+|a_k|)} \\
+    &=& R(n)-R(n-1)
+  \end{eqnarray*}
+  \[ 
+    \therefore \displaystyle{\sum_{n=2} ^{\infty} |P(n)-P(n-1)|}<\infty \implies \displaystyle{\sum_{n=2} ^{\infty}P(n)-P(n-1)}<\infty
+  \]
+  Further,
+  \begin{eqnarray*}
+    & \displaystyle{\sum_{n=2} ^{\infty}P(n)-P(n-1)} = \displaystyle{\lim_{n\rightarrow\infty} P(n)-P(1)} \\
+    & \implies \displaystyle{\lim_{n\rightarrow\infty} P(n)}<\infty
+  \end{eqnarray*}
+
+  Since $a_k\rightarrow 0$ as $k \rightarrow\infty$, $|1+a_k|\le \frac{1}{2}$ for all $k\ge k_0$,
+  for some large $k_0$,
+  \begin{eqnarray*}
+    && \forall k\ge k_0,\hspace{5pt} \left| \frac{-a_k}{1+a_k} \right| \le 2|a_k| \\
+    &\implies& \displaystyle{\prod_{k=1} ^{\infty} \left(1-\frac{a_k}{a_{k+1}}\right)} < \infty \\
+    &\implies& \displaystyle{\prod_{k=1} ^{\infty} \left(\frac{1}{1+a_k}\right)} < \infty
+  \end{eqnarray*}
+  Hence, $\displaystyle{\lim_{n\rightarrow\infty} P(n)} \neq 0$
+\end{proof}
 
 \section{Ordering of Arithmetical Functions}
 
-\subsection{Summation Tools}
+\begin{definition}
+  Take $f:\R\rightarrow\C$, and consider $g:\R\rightarrow\R$ such that $g(x)>0$ for all $x\ge x_0$
+  for some $x_0\in\R$.
+  \begin{itemize}
+    \item[$\rightarrow$] If $\exists C>0$ such that $|f(x)|\le Cg(x)$ for all $x\ge x_0$
+      or as $x\rightarrow\infty$, we say $f\ll g$, and that $f=O(g)$.
+    \item[$\rightarrow$] If $\exists C>0$ such that $|f(x)|\ge Cg(x)$ for all $x\ge x_0$
+      or as $x\rightarrow\infty$, we say $f\gg g$.
+  \end{itemize}
+\end{definition}
+
+\begin{definition}
+  Given $f:\N\rightarrow\C$, and $g:\R\rightarrow\R$ such that $g(x)>0$ for all $x\ge x_0$
+  for some $x_0\in\R$, we say that $f=o(g)$ (as $n\rightarrow\infty$), if $\displaystyle{\lim_{n\rightarrow\infty}\frac{f(n)}{g(n)}}=0$. \\
+  $f=o(g) \implies f=O(g)$.
+\end{definition}
+
+\begin{proposition}
+  $\log(n) = O(n^{\varepsilon})$, for all $\epsilon>0$.
+\end{proposition}
+
+\begin{proof}
+  Let $g:[1,\infty)\rightarrow\R$, such that $g(x)=\frac{\log(x)}{x^{\varepsilon}}$.
+  \begin{eqnarray*}
+    g'(x)=0 &\implies& \frac{x^{\varepsilon -1}-\varepsilon\log(x)x^{\varepsilon -1}}{x^{2\varepsilon}}=0 \\
+    &\implies& \varepsilon\log(x) = 1 \\
+    &\implies& x = e^{\frac{1}{\varepsilon}}
+  \end{eqnarray*}
+  That is, for all $x\ge 1$
+  \begin{eqnarray*}
+    g(x)\le g(e^{\frac{1}{\varepsilon}}) = \frac{1}{e\varepsilon} \\
+    \implies \log(x) \le \frac{x^{\varepsilon}}{e\varepsilon}
+  \end{eqnarray*}
+\end{proof}
+
+\begin{proposition}
+  $d(n)=O(n^{\varepsilon})$, where $d(n):=\#$ of positive divisors of $n$.
+\end{proposition}
+
+\begin{proof}
+  We know that $n=\displaystyle{\prod_{p|n}p^{\alpha_p}}$. Let $a|n$; then $a=\displaystyle{\prod_{p|n}p^{b_p}}$, where
+  $0\le b_p\leq\alpha_p$. Thus, $d(n)=\displaystyle{\prod_{p|n}(\alpha_p +1)}$.
+  \begin{eqnarray*}
+    \frac{d(n)}{n^{\varepsilon}} &=& \prod_{p|n} \frac{\alpha_p +1}{p^{\alpha_p\varepsilon}} \\
+    &=& \prod_{\substack{p|n \\ p<2^{1/\varepsilon}}} \frac{\alpha_p+1}{p^{\alpha_p\varepsilon}}
+    \prod_{\substack{p|n \\ p\ge2^{1/\varepsilon}}} \frac{\alpha_p+1}{p^{\alpha_p\varepsilon}}
+  \end{eqnarray*}
+  When $\varepsilon\ge 1$, it is easy to see that the proposotion holds. Now we consider
+  $0<\varepsilon\le 1$. Note that $\displaystyle{\prod_{\substack{p|n \\ p\ge2^{1/\varepsilon}}} \frac{\alpha_p+1}{p^{\alpha_p\varepsilon}}}$
+  has factors $\frac{\alpha_p +1}{p^{\alpha_p\varepsilon}}\le \frac{\alpha_p +1}{2^{\alpha_p\varepsilon}}\le 1$.
+  \[
+    \implies \frac{d(n)}{n^{\varepsilon}}\le \prod_{p<2^{1/\varepsilon}}< \prod_{\substack{p|n \\ p<2^{1/\varepsilon}}} \frac{\alpha_p+1}{p^{\alpha_p\varepsilon}}
+  \]
+  Now since $p<2^{1/\varepsilon}$,
+  \[
+    \frac{\alpha_p +1}{p^{\alpha_p\varepsilon}}\le 1+ \frac{\alpha_p}{p^{\alpha_p\varepsilon}}\le 1+\frac{1}{\varepsilon\log p}
+  \]
+  Hence,
+  \[
+    \frac{d(n)}{n^{\varepsilon}}\le \displaystyle{\prod_{p<2^{1/\varepsilon}}\left(1+\frac{1}{\varepsilon\log p}\right)}
+    \implies d(n)\le C(\varepsilon) n^{\varepsilon}
+  \]
+\end{proof}
+
+\begin{theorem}
+  $\forall \delta >0 \hspace{5pt} \exists n_0\in\N$, such that $d(n)<2^{(1+\delta)}\frac{\log n}{\log\log n}$,
+  $\forall n\ge n_0$
+\end{theorem}
+Proved in \cite{murty} Ex. 1.33
+
+\begin{remark}
+  $2^{\omega(n)}\le n$, as $\omega(n)\leq\frac{\log n}{\log2}$, that is $\omega(n)=O(n)$.
+  Further, $2^{\omega(n)}\le d(n)$ gives $\omega(n)\leq\frac{\log d(n)}{\log 2}$, which
+  implies that $\omega(n)\ll \frac{\log n}{\log\log n}$.
+\end{remark}
+
+\section{Summation Tools}
 
 \subsection{Abel Summation}
 
-\subsection{Euler-Maclaurin Summation}
+\section{Finite Abelian Groups}
 
-\section{Prime Numbers}
+\begin{definition}
+  A function of the form $\chi:G\rightarrow S^1$ such that $\chi(ab)=\chi(a)\chi(b)$
+  for all $a,b\in G$, where $G$ is a finite abelian group is known as a
+  character.
+\end{definition}
+
+The set of all characters of $G$ is usually denoted as $\widehat{G}$.
+It can be shown that $\widehat{G}$ is a group with the binary operation
+$\chi\psi(g):=\chi(g)\phi(g)$. The trivial character $\chi_0$ such that $\chi_0(g)=1$
+for all $g\in G$ will act as the identity of the group. The group $\widehat{G}$
+will be abelian if $G$ is abelian.
+
+\begin{proposition}
+  If $f\in\widehat{G}$, then $f=e_l$ for some $l\in G$, where
+  $e_l(k):=e^{2\pi i\frac{lk}{q}}$ for $G=\Z/q\Z$.
+\end{proposition}
+
+\begin{lemma}
+  Suppose $e:G\rightarrow\C^{\times}$ is a function such that $e(ab)=e(a)e(b)$
+  for all $a,b\in G$. Then $e\in\widehat{G}$.
+\end{lemma}
+
+\begin{proof}
+  Let $|G|=n$. We know that $e(a^n)=1$ for all $a\in G$. Hence $|e(a)=1|$
+  for all $a\in G$.
+\end{proof}
+
+\begin{lemma}
+  If $e\in\widehat{G}$ is not the identity, then $\displaystyle\sum_{a\in G}e(a)=0$.
+\end{lemma}
+
+\begin{proof}
+  Choose a $b\in G$ such that $e(b)\neq0$.
+  \begin{eqnarray*}
+    e(b)\displaystyle\sum_{a\in G}e(a) &=& \displaystyle\sum_{a\in G}e(ab) \\
+    &=& \displaystyle\sum_{a\in G}e(a) \\
+    \implies (e(b)-1)\displaystyle\sum_{a\in G}e(a) &=& 0 \\
+    \implies \displaystyle\sum_{a\in G}e(a) &=& 0
+  \end{eqnarray*}
+\end{proof}
+
+Let $V=\{f:G\rightarrow\C\}$. V forms a finite dimensional vector space over $\C$.
+Define inner product on $V$: $\langle f_1,f_2\rangle:=\frac{1}{|G|}\displaystyle\sum_{a\in G}f_1(a)\overline{f_2(a)}$
+
+\begin{theorem}
+  $\widehat{G}$ forms an orthonormal set in $V$.
+\end{theorem}
+
+\begin{proof}
+  For any $e_l,e_k\in\widehat{G}$,
+  \begin{eqnarray*}
+    \langle e_l,e_k\rangle &=& \frac{1}{|G|}\displaystyle\sum_{a\in G}e^{2\pi i\frac{l-k}{q}a} \\
+            &=& \begin{cases} 1 & l=k \\ 0 & l\neq k\end{cases}
+  \end{eqnarray*}
+\end{proof}
+
+Thus, $|\widehat{G}| \le |G|$. By carefully constructing maps from $\widehat{G}$ to $G$,
+it can be shown that $|\widehat{G}| \ge |G|$. Hence the theorem:
+
+\begin{theorem}
+  $|\widehat{G}| = |G|$
+\end{theorem}
+
+Using the results proved above, we can state the orothogonality principles:
+\begin{enumerate}
+  \item Let $e\in\widehat{G}$.
+    \[
+      \sum_{g\in G} e(g) = \begin{cases} |G| & \text{if $e$ is the identity} \\ 0 & \text{otherwise} \end{cases}
+    \]
+  \item Let $x\in G$.
+    \[
+      \sum_{e\in\widehat{G}} e(x) = \begin{cases} |G| & \text{if $x$ is the identity} \\ 0 & \text{otherwise} \end{cases}
+    \]
+\end{enumerate}
 
 \[ \blacktriangle \blacktriangledown \blacktriangle \]
