@@ -28,19 +28,19 @@ quadratic curve.
 
   Drop a perpendicular $PM$ on $OL$ such that $\triangle PML$ and $\triangle PMD$ are both
   right angled. Denote $\angle PLM$ as $\alpha$, and $\angle PDM$ as $\beta$.
-
   Consider the triangles  $\triangle PML$ and $\triangle PMD$:
   \begin{eqnarray*}
     \sin{\alpha}&=&\frac{PM}{PD}\\ 
-    \quad \textrm{and} \quad \sin{\beta}&=&\frac{PM}{PL}\\
-    \quad \implies \quad \frac{PL}{PD}&=&\frac{\sin{\alpha}}{\sin{\beta}}
+    \text{and} \quad \sin{\beta}&=&\frac{PM}{PL}\\
+    \implies \quad \frac{PL}{PD}&=&\frac{\sin{\alpha}}{\sin{\beta}}
   \end{eqnarray*}
 
   \begin{figure}[H]
     \center
     \tdplotsetmaincoords{70}{0}
     \begin{tikzpicture}[tdplot_main_coords]
-      \begin{scope}[scale=2.5]
+      \begin{scope}[scale=2.4]
+
       \draw [line width=1.25] (2,0,0) -- (0,0,5) node[anchor=south]{$V$};
       \draw [line width=1.25] (0,0,5) -- (-2,0,0);
       \draw [line width=1.25] (2,0,0) arc (360:180:2);
@@ -66,7 +66,7 @@ quadratic curve.
       \filldraw ({(1.2)*cos(230)},{(1.2)*sin(230)},2) circle (0.5pt)
         node[anchor=north east]{$L$};
       \filldraw ({(-1.5)+(0.775)*(-0.5)},{(1.2)+(0.775)*(-3.2)},2) circle (0.5pt)
-        node[anchor=south east]{$D$};
+        node[anchor=east]{$D$};
       \filldraw (0,0,2) circle (0.5pt)
         node[anchor=south west]{$O$};
       \filldraw ({(0.78)*(1.2)*cos(230)},{(0.78)*(1.2)*sin(230)},{5-(0.78)*(3)})
@@ -98,8 +98,9 @@ quadratic curve.
   \frac{PF}{PD}=\frac{\sin{\alpha}}{\sin{\beta}}\\
   \implies PF=e\cdot PD
   \end{eqnarray*}
+
   where $e=\sin{\alpha}/\sin{\beta}$\\
-  It follows from the focus - directrix definition that $Q$ will be an ellipse if
+  It follows from the focus-directrix definition that $Q$ will be an ellipse if
   $\alpha<\beta$, a parabola if $\alpha=\beta$, or a hyperbola if $\alpha>\beta$.
 \end{proof}
 
@@ -145,7 +146,6 @@ $P \oplus Q = R$, where $R$ is such that $l_{PQ}$ is parellel to $l_{OR}$.
         \textbf{Circle}\\
         Without loss of generality, let $O=(1,0)$. Since $R$ also lies on $C$,
         $r_1^2+r_2^2=1$. i.e.
-
         \begin{eqnarray*}
           &&(1+\mu(q_1-p_1))^2+(0+\mu(q_2-p_2))^2=1\\
           \Longrightarrow&& \mu(\mu(q_1-p_1)^2+\mu(q_2-p_2)^2+2(q_1-p_1))=0\\
@@ -181,7 +181,6 @@ $P \oplus Q = R$, where $R$ is such that $l_{PQ}$ is parellel to $l_{OR}$.
         \end{figure}
 
         The $\mu=0$ solution corresponds to $O=R$. Considering the other solution,
-
         \begin{eqnarray*}
           r_1&=& 1-\frac{2(q_1-p_1)^2}{(q_1-p_1)^2+(q_2-p_2)^2}\\
              &=& \frac{(q_2-p_2)^2-(q_1-p_1)^2}{(q_1-p_1)^2+(q_2-p_2)^2}\\
@@ -203,7 +202,6 @@ $P \oplus Q = R$, where $R$ is such that $l_{PQ}$ is parellel to $l_{OR}$.
         Without loss of generality, let $O=(0,0)$. The points of the standard parabloa can
         be parameterized as $(t,t^2)$. Let $P=(p,p^2)$, $Q=(q,q^2)$, and $R=(r,r^2)$.
         Substituting them in $\lambda$:
-
         \begin{eqnarray*}
           \lambda&=& \frac{r^2}{r}=\frac{q^2-p^2}{q-p}\\
           &\Longrightarrow& r=p+q \\
@@ -240,7 +238,6 @@ $P \oplus Q = R$, where $R$ is such that $l_{PQ}$ is parellel to $l_{OR}$.
         Without loss of generality, let $O=(1,1)$.The points of the standard hyperbola can
         be parameterized as $(t,\frac{1}{t})$. Let $P=(p,\frac{w}{p})$, $Q=(q,\frac{1}{q})$,
         and $R=(r,\frac{1}{r})$. Substituting them in $\lambda$:
-
         \begin{eqnarray*}
           \lambda&=& \frac{\frac{1}{r}-1}{r-1}=\frac{\frac{1}{q}-\frac{1}{p}}{p-q}\\
           &\Longrightarrow& r=pq\\
@@ -274,6 +271,7 @@ $P \oplus Q = R$, where $R$ is such that $l_{PQ}$ is parellel to $l_{OR}$.
           \caption{$R = P \oplus Q$ when $C$ is the standard hyperbola.}
         \end{figure}
   \end{enumerate}
+
   From the expressions obtained for $P\oplus Q$, in all three cases it can be easily proved
   that $P\oplus(Q\oplus R)=(P\oplus Q)\oplus R$, $\forall P,Q,R \in C$.
 \end{proof}
@@ -297,16 +295,18 @@ with slope $m\in Q$, passing through $P$ and another point $Q=(x,y)\in C$. The c
 of $Q$ can be found by substituting $y=m(x-1)$.
 $$x^2+m^2(x-1)^2-1=(1+m^2)x^2-2m^2x-(1-m^2)=0$$
 using the quadratic formula,
-$$x=\frac{m^2\pm1}{1+m^2}$$
+\[
+  x=\frac{m^2\pm1}{1+m^2}
+\]
 from the non-trivial solution, we get $x=\frac{m^2-1}{m^2+1}$ and $y=\frac{-2m}{m^2+1}$.
-substiting these values in the equation for the conic,
-
+substituting these values in the equation for the conic,
 \begin{eqnarray*}
-  (\frac{m^2-1}{m^2+1})^2+(\frac{-2m}{m^2+1})^2=1\\
-  \Longrightarrow (m^2-1)^2+(2m)^2=(m^2+1)^2
+  \left(\frac{m^2-1}{m^2+1}\right)^2+\left(\frac{-2m}{m^2+1}\right)^2 &=& 1\\
+  \Longrightarrow (m^2-1)^2+(2m)^2 &=& (m^2+1)^2
 \end{eqnarray*}
 
 This equation will produce integer solutions for $x^2+y^2=1$, though not all of them. Rational
 or integer solutions for any equations of the form $ax^2+by^2=c$, where $a,b,c\in Q$ can be
-similarly produced.
+similarly generated.
+
 \[ \blacktriangle \blacktriangledown \blacktriangle \]

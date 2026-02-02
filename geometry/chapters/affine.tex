@@ -6,14 +6,12 @@
   A set $\mathcal{E}$ is endowed with the structure of an affine space by a vector space $E$
   and a mapping $\Theta$ that associates a vector of $E$ with any ordered pair of points in
   $\mathcal{E}$,
-
   \begin{eqnarray*}
     \mathcal{E} \times \mathcal{E} &\longrightarrow & E \\
     (A,B) &\longmapsto & \overrightarrow{AB}
   \end{eqnarray*}
 
   such that:
-
   \begin{itemize}
     \item[-]for any point $A$ of $\mathcal{E}$, the partial map $\Theta_A : B \mapsto
         \overrightarrow{AB}$ is a bijection from $\mathcal{E}$ to $E$;
@@ -48,6 +46,7 @@ transformations:
   \item Map parellel straight lines into parellel straight lines;
   \item Preserve ratios of lengths along a given straight line.
 \end{enumerate}
+
 Translations and Rotations are examples of affine transformations in 2 dimensional affine
 spaces.
 
@@ -86,6 +85,11 @@ spaces.
   unique.
 \end{proof}
 
+\begin{definition}
+  Two subsets of an affine space are said to be affine congruent if there exists an affine
+  transformation which takes one to the other.
+\end{definition}
+
 Using the above lemma, we prove the two-dimensional analog of the so called Fundamental
 theorem of Affine Geometry.
 
@@ -94,11 +98,6 @@ theorem of Affine Geometry.
   there exists a unique affine transformation $t$ which maps $p$, $q$, and $r$ to $p'$, $q'$,
   and $r'$, respectively.
 \end{theorem}
-
-\begin{definition}
-  Two subsets of an affine space are said to be affine congruent if there exists an affine
-  transformation which takes one to the other.
-\end{definition}
 
 \begin{proof}
   Let $t_1$ be the affine transformation which maps $(0,0)$, $(0,1)$, and $(1,0)$ to the
@@ -175,8 +174,7 @@ theorem of Affine Geometry.
 \end{theorem}
 
 \begin{proof}
-  Consider a general elliipse centered at the origin, with aligned axes, $E_1:$
-  \[\frac{x^2}{a^2}+\frac{y^2}{b^2}=1 \]
+  Consider a general elliipse centered at the origin, with aligned axes, $E_1:\displaystyle\frac{x^2}{a^2}+\frac{y^2}{b^2}=1$ \\
   With a translation to move the center to the origin and a rotation to align the axes, any
   ellipse can be transformed into this form.
   If we apply the affine transformation $t_1:(x,y)\mapsto (x',y')$, where
@@ -204,8 +202,7 @@ theorem of Affine Geometry.
 \end{theorem}
 
 \begin{proof}
-  Consider a general hyperbola centerd at the origin with aligned axes, $H_1:$
-  \[\frac{x^2}{a^2}-\frac{y^2}{b^2}=1 \]
+  Consider a general hyperbola centerd at the origin with aligned axes, $H_1:\displaystyle\frac{x^2}{a^2}-\frac{y^2}{b^2}=1$ \\
   With a translation to move the center to the origin and a rotation to align the axes, any
   hyperbola can be transformed into this form.
   If we apply the affine transformation $t_1:(x,y)\mapsto (x',y')$, where
@@ -255,4 +252,5 @@ theorem of Affine Geometry.
   Then the equation becomes $(y')^2=x'$. The map $t=t_2\circ t_1^{-1}$ takes the parabola
   $P_1$ to $P_2$.
 \end{proof}
+
 \[ \blacktriangle \blacktriangledown \blacktriangle \]
