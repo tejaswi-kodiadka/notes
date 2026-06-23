@@ -2,6 +2,133 @@
 
 \section{Groups of Matrices}
 
+Let \(M_{m,n}(\K)\) be the set of \(m\times n\) matrices whose entries are in \(\K\), a commutative field.
+We will also use the special notations \(M_n(\K)=M_{n.n}(\K)\), and \(\K^n=M_{n,1}(\K)\).
+
+\(M_{m,n}(\K)\) is a vector space over \(\K\) with dimension \(mn\). As well as being a vector space over
+\(\K\) with dimension \(n^2\), \(M_n(\K)\) is also a ring with the usual addition and multiplication of
+matrices. It is also an important example of a finite dimensinoal algebra over \(\K\).
+
+We will use the notation
+\[ GL_n(\K)=\{A\in M_n(\K):\text{det }A\ne0\} \]
+for the set of invertible \(n\times n\) matrices, known as the \(n\times n\) {\it general linear group}, and 
+\[ SL_n(\K)=\{A\in M_n(\K):\text{det }A=1\}\subseteq GL_n(\K) \]
+for the set of \(n\times n\) unimodular matrices, known as the \(n\times n\) {\it special linear group}.
+
+\begin{theorem}
+  The sets \(GL_n(\K)\) and \(SL_n(\K)\) are groups under matrix multiplication. Furthermore,
+  \(SL_n(\K)\) is a subgroup of \(GL_n(\K)\).
+\end{theorem}
+
+Since determinant of a matrix is a polynomial in the entries of the matrix, it can
+be proved that the determinant function
+\[\text{det}:M_n(\K)\longrightarrow\K\]
+is continous.
+
+\begin{proposition}
+  Let \(\K=\R\) or \(\C\). Then
+  \begin{itemize}
+    \item[i)] \(GL_n(\K)\subseteq M_n(\K)\) is an open subset;
+    \item[ii)] \(SL_n(\K)\subseteq M_n(\K)\) is a closed subset.
+  \end{itemize}
+\end{proposition}
+
+\begin{proof}
+  \(GL_n(\K)=M_n(\K)-\text{det}^{-1}\{0\}\), which is open since \{0\} is closed. Similarly,
+  \(SL_n(\K)=\text{det}^{-1}\{1\}\), which is closed since the singleton \{1\} is closed in \(\K\).
+\end{proof}
+
+\begin{definition}
+  Let \(G\) be a topological space, and view \(G\times G\) as the product space. Suppose that
+  \(G\) is also a group with multiplication map \(\text{mult }:G\times G\longrightarrow G\),
+  and inverse map \(\text{inv }:G\longrightarrow G\). \(G\) is a {\it topological group} if
+  mult and inv are continous.
+\end{definition}
+
+\begin{theorem}
+  For \(\K=\R\) or \(\C\), \(GL_n(\K)\) and \(SL_n(\K)\) are topological groups.
+\end{theorem}
+
+\section{Matrix Groups}
+
+\begin{definition}
+  A subgroup \(G\) of \(GL_n(\K)\) is called a {\it matrix group} if it is a closed subset of \(GL_n(\K)\).
+\end{definition}
+
+\begin{remark}
+  We may consider \(GL_n(\K)\) as a subgroup of \(GL_{n+1}(\K)\) by identifying the \(n\times n\)
+  matrix \(A=[a_{ij}]\) with
+  \[
+    \left[\begin{array}{cc}
+      A & 0 \\
+      0 & 1
+    \end{array}\right]
+    =
+    \left[\begin{array}{cccc}
+      a_{11} & \cdots & a_{1n} & 0 \\
+      \vdots & \ddots & \vdots & \vdots \\
+      a_{n1} & \cdots & a_{nn} & 0 \\
+      0 & \cdots & 0 & 1
+    \end{array}\right]
+  \]
+  And it is easily verified that \(GL_n(\K)\) is closed in \(GL_{n+1}(\K)\). With the aid of this embedding, any matrix subgroup of \(GL_n(\K)\) can also be viewed as
+  a matrix subgroup of \(GL_{n+1}(\K)\).
+\end{remark}
+
+\begin{definition}
+  Let \(G\), \(H\) be two matrix groups. A groups homomorphism \(\varphi:G\longrightarrow H\) is a
+  {\it continuous homomorphism of matrix groups} if it is continuous and its image
+  \(\varphi(G)\) is a closed subgroup of \(H\).
+\end{definition}
+
+\begin{examples}
+  Some important examples of real and complex matrix groups:
+  \begin{enumerate}
+    \item {\bf Groups of Upper Triangular Matrices}
+
+      For \(n\ge1\), an \(n\times n\) matrix \(A=[a_{ij}]\) is said to be {\it upper triangular}
+      if \(a_{ij}=0\) if \(i<j\). An upper traingular matrix is said to be {\it unipotent} of all
+      of it's diagonal entries are 1.
+
+      The {\it upper triangular subgroup} or {\it Borel subgroup} of \(GL_n(\K)\) is
+      \[ UT_n(\K)=\{A\in GL_n(\K):\text{A is upper triangular}\}, \]
+      while the {\it unipotent} subgroup of \(GL_n(\K)\) is
+      \[ SUT_n(\K)=\{A\in GL_n(\K):\text{A is unipotent}\}. \]
+
+      It is easy to verify that \(UT_n(\K)\) and \(SUT_n(\K)\) are closed subgroups of \(GL_n(\K)\),
+      and that \(SUT_n(\K)\) is a subgroup of \(UT_n(\K)\).
+    \item {\bf Affine Groups}
+
+      The {\it n-dimensional affine group} over \(\K\) is
+      \[ Aff_n(\K) = \left\{ \left[\begin{array}{cc} A & t \\ 0 & 1 \end{array}\right]:A\in GL_n(\K), t\in \K^n\right\} \]
+      which is clearly a closed subgroup of \(GL_{n+1}(\K)\). If we identify \(x\in\K^n\) with
+      \(\left[\begin{array}{c} x \\ 1 \end{array}\right]\in\K^{n+1}\), then as a consequence of
+      \[ 
+        \left[\begin{array}{cc}
+          A & t \\
+          0 & 1 
+        \end{array}\right]
+        \left[\begin{array}{c} x \\ 1 \end{array}\right]
+        =
+        \left[\begin{array}{c} Ax+t \\ 1 \end{array}\right]
+      \]
+      we obtain an action of \(Aff_n(\K)\) on \(\K^n\).
+
+      The group \(Aff_n(\K)\) can be expressed as the semi-direct product of \(Trans_n(\K)\)
+      and \(GL_n(\K)\), where
+      \[ Trans_n(\K) = \left\{ \left[\begin{array}{cc} I_n & t \\ 0 & 1 \end{array}\right]:t\in \K^n\right\} \]
+      is a closed normal subgroup of \(Aff_n(\K)\). That is,
+      \[ Aff_n(\K)=GL_n(\K)\ltimes Trans_n(\K). \]
+
+    \item {\bf Orthagonal Groups}
+
+    \item {\bf Unitary Groups}
+
+    \item {\bf Symplectic Groups}
+
+  \end{enumerate}
+\end{examples}
+
 \section{Complex Matrices as Real Matrices}
 
 \section{Matrix Groups of Normed Vector Spaces}
