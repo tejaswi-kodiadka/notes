@@ -122,14 +122,83 @@ is continous.
 
     \item {\bf Orthagonal Groups}
 
+      The {\it \(n\times n\) real orthagonal group} is the subset
+      \[ O(n)=\{A\in GL_n(\R):A^TA=I_n \}, \]
+      where \(A^T\) is the transpose of \(A=[a_{ij}]\) whose entris are given by
+      \((A^T)_{ij}=a_{ji}\). \(O(n)\) is a closed subgroup of \(GL_n(\R)\). For all \(A\in O(n)\),
+      since \(\text{det } A= \text{det } A^T\), \(\text{det } A= \pm 1\). The subgroup
+      \[ SO(n)=\{A\in O(n):\text{det } A=1 \} \]
+      is known as the {\it special orthagonal group}. One of the main reasons for
+      the study of orthagonal groups is due to their relation with isometries. If \(A\in GL_n(\R)\),
+      then it can be proved that \(A\) is an linear isometry {\it iff} \(A\) is orthagonal.
+      The elements of \(SO(n)\) are called {\it direct isometries} or {\it rotations}.
+
     \item {\bf Unitary Groups}
 
+      The {\it \(n\times n\) unitary group} is the subset
+      \[ U(n)=\{A\in GL_n(\C):A^*A=I_n \}, \]
+      where \(A^*\) is the {\it hermitian conjugate} of \(A\), that is \(A^*)_{ij}=a_{ji}\).
+      \(U(n)\) is clearly a closed subgroup of \(GL_n(\C)\). The {\it special unitary group}
+      is the subset
+      \[ SU(n)=\{A\in U(n):\text{det } A=1 \}, \]
+      which is also a normal subgroup of \(U(n)\).
+
     \item {\bf Symplectic Groups}
+
+      A matrix \(S\) is called {\it skew symmetric} if \(S^T=-S\). The standard example of
+      this is built up using the \(2\times 2\) block
+      \[
+        J=
+        \left[\begin{array}{cc}
+            0 & 1 \\
+            -1 & 0
+        \end{array}\right].
+      \]
+      When \(m\ge1\) we have the non degenrative skew symmetric matrix
+      \[
+        J_{2m}=
+        \left[\begin{array}{cccc}
+            J & O_2 & \cdots & O_2 \\
+            O_2 & J & \cdots & O_2 \\
+            \vdots & \vdots & \ddots & \vdots \\
+            O_2 & O_2 & \cdots & J
+        \end{array}\right].
+      \]
+
+      The matrix group
+      \[ Symp_{2m}(\R)=\{A\in GL_{2m}(\R): A^TJ_{2m}A=J_{2m} \} \]
+      is called the {\it \(2m\times 2m\) real symplectic group}. It can be proved that if
+      \(A\in Symp_{2m}(\R)\), then \(\text{det } A=1\).
 
   \end{enumerate}
 \end{examples}
 
 \section{Complex Matrices as Real Matrices}
+
+Similar to how complex numbers can be viewed as a 2-dimensional real vector space with
+basis \((1,i)\), every \(n\times n\) complex matrix can also be viewed as a \(2n\times 2n\)
+real matrix using the following constructions or the ones similar to it.
+
+We identify each complex number \(z=x+iy\) with a \(2\times 2\) matrix by defining a funciton
+\[ \rho :\C\longrightarrow M_2(\R);\hspace{10px} \rho(x+iy) = \left[\begin{array}{cc} x & -y \\ y & x \end{array}\right]. \]
+This can also be expressed as
+\[ \rho(x+iy) = xI_2 - yJ. \]
+As \(\rho\) is an injective ring homomorphism, we can view \(\C\) as a subring of \(M_2(\R)\).
+Notice that \(\rho(\bar{z})=\rho(z)^T\).
+
+For a \(n\times n\) complex matrix \(Z\), we define a function \(\rho_n: M_n(\C)\longrightarrow M_{2n}(\R)\);
+\[
+  \rho_n(Z)=
+  \left[\begin{array}{cccc}
+      \rho(z_{11}) & \rho(z_{12}) & \cdots & \rho(z_{1n}) \\
+      \rho(z_{21}) & \ddots & \ddots & \vdots \\
+      \vdots & \ddots & \ddots & \vdots \\
+      \rho(z_{n1})& \cdots & \cdots & \rho(z_{nn})
+  \end{array}\right]
+\]
+Then \(\rho_n\) is an continuous injective ring homomorphism. Generally for \(n\times n\)
+real matrices \(X\) and \(Y\),
+\[ \rho_n(X+iY)=\rho_n(X)-J_{2n}\rho_n(Y)J_{2n}. \]
 
 \section{Matrix Groups of Normed Vector Spaces}
 
