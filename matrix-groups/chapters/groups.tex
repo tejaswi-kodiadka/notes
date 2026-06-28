@@ -28,8 +28,8 @@ is continous.
 \begin{proposition}
   Let \(\K=\R\) or \(\C\). Then
   \begin{itemize}
-    \item[i)] \(GL_n(\K)\subseteq M_n(\K)\) is an open subset;
-    \item[ii)] \(SL_n(\K)\subseteq M_n(\K)\) is a closed subset.
+    \item[\((i)\)] \(GL_n(\K)\subseteq M_n(\K)\) is an open subset;
+    \item[\((ii)\)] \(SL_n(\K)\subseteq M_n(\K)\) is a closed subset.
   \end{itemize}
 \end{proposition}
 
@@ -202,6 +202,135 @@ real matrices \(X\) and \(Y\),
 
 \section{Matrix Groups of Normed Vector Spaces}
 
+It is often desireable to generalize the notion of matrix spaces to srbitrary finite dimensional
+real or complex vector spaces. Here we assume \(\K=\R\text{ or }\C\).
+
+\begin{theorem}
+  Let \((U,\mu)\) and \((V,\nu)\) be two finite dimensional normed vector spaces of the
+  same dimension over \(\K\). Then any linear isomorphism \(\varphi:U\longrightarrow V\) is
+  a homeomorphism.
+\end{theorem}
+
+\begin{corollary}
+  If \(\mu\) and \(\nu\) are to norms on a finite dimensional vector space, then they give
+  raise to the same topology.
+\end{corollary}
+
+\begin{proof}
+  The identity function is a linear isomorphism, which must m=be continuous. This implies that
+  every open set in the topology of \(\nu\) is open in the topology of \(\mu\) and vice-versa.
+\end{proof}
+
+Given a finite dimensional normed vector space \(V,\nu\) and a linear transformation
+\(\alpha:V\longrightarrow V\), we define the {\it operator norm} of \(\alpha\) with respect to
+\(\nu\) by
+\[ ||\alpha||_{\nu}=sup\{\nu(\alpha(x)):x\in V,\nu(x)=1\} \]
+This defines a norm on \(End_{\K}(V)\), the set of all linear transformations \(V\longrightarrow V\),
+which makes it a finite dimensional normed vector space overe \(\K\).
+
+\begin{proposition}
+  If \(\mu\) and \(\nu\) are two norms on a finite dimensional vector space \(V\), then the
+  topologies associated to \(End_{\K}(V)\) with respect to \(\mu\) and \(\nu\) are the same.
+\end{proposition}
+
+Inside \(End_{\K}(V)\) we have the group of linear isomorphisms, \(GL_{\K}(V)\subseteq End_{\K}(V)\),
+the {\it general linear group} of the vector space \(V\).
+
+\begin{proposition}
+  Let \(U\) and \(V\) be two vector spaces of the same dimension. If \(\varphi:U\longrightarrow V\)
+  is a linear isomorphism, then it induces a continuous group isomorphism with a continuous inverse,
+  \[ \varphi_*:GL_{\K}(U)\longrightarrow GL_{\K}(V);\hspace{15px} \varphi_*(\alpha)=\varphi\circ\alpha\circ\varphi^{-1} \]
+\end{proposition}
+
+Generally, given a finite basis for \(V\), there is an associated linear isomorphism
+\(V\cong\K^n\) for some \(n\), a ring isomorphism \(End_{\K}(V)\cong M_n(\K)\) and a group
+isomorphism \(GL_{\K}(V)\cong GL_n(\K)\).
+
+\begin{theorem}
+  Let \(V\) be a finite dimensional vector space over \(\K\) with dimension \(n\) and let
+  \(\varphi:V\longrightarrow\K^n\) be a linear isomorphism. Then \(\varphi_*:GL_{\K}(V)\longrightarrow GL_n(\K)\)
+  is a continuous grouop isomorphism with a continuous inverse. Hence \(GL_{\K}(V)\) is a
+  matrix group.
+\end{theorem}
+
 \section{Matrix Exponential and Logarithm}
+
+We define the exponential and logarithm functions for matrices using theor power series.
+Throught this section, we assume \(\K=\R\text{ or }\C\).
+\\
+
+The {\it exponential function} is, \(\exp:M_n(\K)\longrightarrow GL_n(\K)\);
+\[ \exp(A)=\sum_{n\ge0}\frac{1}{n!}A^n=I+A+\frac{1}{2!}A^2+\frac{1}{3!}A^3+\cdots \]
+
+\begin{proposition}
+  Let \(A\in M_n(\K)\).
+  \begin{itemize}
+    \item[\((i)\)] For \(u,v\in\C, \exp((u+v)A)=\exp(uA)\exp(vA)\).
+    \item[\((ii)\)] \(\exp(A)^{-1}=\exp(-A).\)
+    \item[\((iii)\)] If \(B\in M_n(\K)\) commutes with \(A\), then \(\exp(A+B)=\exp(A)\exp(B)\).
+  \end{itemize}
+\end{proposition}
+
+We define the {it logarithm function} by
+\[ \log:N_{M_n(\K)}(I;1)\longrightarrow M_n(\K); \]
+\[ \log(A)=\sum_{n\ge1}\frac{(-1)^{n-1}}{n}(A-I)^n \]
+
+\begin{proposition}
+  The \(\exp\) and \(\log\) functions satisfy
+  \begin{itemize}
+    \item[\((i)\)] if \(||A-I||<1\), then \(\exp(\log(A))=A\);
+    \item[\((ii)\)] if \(||exp(B)-I||<1\), then \(\log(\exp(B))=B\).
+  \end{itemize}
+\end{proposition}
+
+The functions \(\exp\) and \(\log\) are continuous and in fact infinitely differentiable
+on their domains. By continuity of \(\exp\) at \(O\), there is a \(\delta_1>0\) such that
+\[ N_{M_n(\K)}(O;r)\subseteq\exp^{-1}N_{GL_n(\K)}(I;1). \]
+Since \(\exp N_{M_n(\K)}(O;r)\subseteq N_{M_n(\K)}(I;e^r-1)\), we can take \(\delta_1=\log 2\).
+Hence we have the following result.
+
+\begin{proposition}
+  The exponential function \(\exp\) is injective when restricted to the open subset
+  \(N_{M_n(\K)}(O;\log2)\subseteq M_n(\K)\). Hence it is locally a diffeomorphism at \(O\) with the
+  local inverse \(\log\).
+\end{proposition}
+
+\section{Differential Equations in Matrices}
+
+\begin{definition}
+  A {\it differentiable curve} in \(M_n(\K)\) is a function \(\alpha:(a,b)\longrightarrow M_n(\K)\)
+  for which the derivative \(\alpha'(t)\) exists for each \(t\in(a.b)\). Here \(\alpha'(t)\)
+  is defined as an element of \(M_n(\K)\) by
+  \[ \alpha'(t)=\lim_{s\rightarrow t}\frac{1}{(s-t)}(\alpha(s)-\alpha(t)), \]
+  provided that the limit exists.
+\end{definition}
+
+Consider the first order differential equation \(\alpha'(t)=\alpha(t)A\), where \(\alpha\)
+is assumed to be a differentiable curve.
+
+\begin{theorem}
+  For \(A,C\in M_n(\R)\) with \(A\) non-zero, and \(a<0<b\), the differential equation
+  \(\alpha'(t)=\alpha(t)A\), has a unique solution \(\alpha:(a.b)\longrightarrow M_n(\R)\)
+  for which \(\alpha(0)=C\). Furthermore, if \(C\) is invertible, then so is \(\alpha(t)\) for
+  \(t\in(a,b)\).
+\end{theorem}
+
+\begin{proof}
+Consider the function \(\alpha:(a,b)\longrightarrow M_n(\R)\); \(\alpha(t)=\exp(tA)\).
+It is differentiable with
+\[ \alpha'(t)=\sum{k\ge1}\frac{t^{k-1}}{(k-1)!}A^k=A\exp(tA) \]
+Hence \(\alpha\) satisfies the differential equation with boundary condition \(\alpha(0)=I\).
+Clearly, \(\alpha(t)=C\exp(tA)\) is one solution to \(\alpha(0)=0\). If \(\beta\) is another
+such solution, then \(\gamma(t)=\beta(t)\exp(-tA)\) satisfies
+
+\begin{eqnarray*}
+  \gamma'(t) &=& \beta'(t)\exp(-tA)+\beta(t)\exp(-tA)(-A) \\
+             &=& \beta(t)A\exp(-tA)-\beta(t)A\exp(-tA) \\
+             &=& O.
+\end{eqnarray*}
+
+Hence \(\gamma\) is a constant function with \(\gamma(t)=\gamma(0)=C\). Thus
+\(\beta(t)=C\exp(tA)=\alpha(t)\).
+\end{proof}
 
 \section{One Parameter Subgroups in Matrix Groups}
