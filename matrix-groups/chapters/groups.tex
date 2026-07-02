@@ -7,7 +7,7 @@ We will also use the special notations \(M_n(\K)=M_{n.n}(\K)\), and \(\K^n=M_{n,
 
 \(M_{m,n}(\K)\) is a vector space over \(\K\) with dimension \(mn\). As well as being a vector space over
 \(\K\) with dimension \(n^2\), \(M_n(\K)\) is also a ring with the usual addition and multiplication of
-matrices. It is also an important example of a finite dimensinoal algebra over \(\K\).
+matrices. It is also an important example of a finite dimensinal algebra over \(\K\).
 
 We will use the notation
 \[ GL_n(\K)=\{A\in M_n(\K):\text{det }A\ne0\} \]
@@ -52,7 +52,8 @@ is continous.
 \section{Matrix Groups}
 
 \begin{definition}
-  A subgroup \(G\) of \(GL_n(\K)\) is called a {\it matrix group} if it is a closed subset of \(GL_n(\K)\).
+  A subgroup \(G\) of \(GL_n(\K)\) is known as a {\it matrix group}, given
+  it is a closed subset of \(GL_n(\K)\).
 \end{definition}
 
 \begin{remark}
@@ -177,7 +178,7 @@ is continous.
 
 Similar to how complex numbers can be viewed as a 2-dimensional real vector space with
 basis \((1,i)\), every \(n\times n\) complex matrix can also be viewed as a \(2n\times 2n\)
-real matrix using the following constructions or the ones similar to it.
+real matrix using the following construction or the ones similar to it.
 
 We identify each complex number \(z=x+iy\) with a \(2\times 2\) matrix by defining a funciton
 \[ \rho :\C\longrightarrow M_2(\R);\hspace{10px} \rho(x+iy) = \left[\begin{array}{cc} x & -y \\ y & x \end{array}\right]. \]
@@ -217,7 +218,7 @@ real or complex vector spaces. Here we assume \(\K=\R\text{ or }\C\).
 \end{corollary}
 
 \begin{proof}
-  The identity function is a linear isomorphism, which must m=be continuous. This implies that
+  The identity function is a linear isomorphism, which must be continuous. This implies that
   every open set in the topology of \(\nu\) is open in the topology of \(\mu\) and vice-versa.
 \end{proof}
 
@@ -255,7 +256,7 @@ isomorphism \(GL_{\K}(V)\cong GL_n(\K)\).
 
 \section{Matrix Exponential and Logarithm}
 
-We define the exponential and logarithm functions for matrices using theor power series.
+We define the exponential and logarithm functions for matrices using their power series.
 Throught this section, we assume \(\K=\R\text{ or }\C\).
 \\
 
@@ -313,6 +314,7 @@ is assumed to be a differentiable curve.
   \(\alpha'(t)=\alpha(t)A\), has a unique solution \(\alpha:(a.b)\longrightarrow M_n(\R)\)
   for which \(\alpha(0)=C\). Furthermore, if \(C\) is invertible, then so is \(\alpha(t)\) for
   \(t\in(a,b)\).
+\label{thm:exp}
 \end{theorem}
 
 \begin{proof}
@@ -334,3 +336,59 @@ Hence \(\gamma\) is a constant function with \(\gamma(t)=\gamma(0)=C\). Thus
 \end{proof}
 
 \section{One Parameter Subgroups in Matrix Groups}
+
+\begin{definition}
+  A {\it differentiable curve} is \(G\) is a function \(\gamma:(a,b)\longrightarrow G\)
+  for which derivative \(\gamma'(t)\) exists at each \(t\in(a.b)\).
+\end{definition}
+We usually assume that \(a<0<b\) when considering such curves.
+Now suppose that \(\varepsilon>0\) or \(\varepsilon=\infty\).
+
+\begin{definition}
+  A {\it one-parameter subgroup} in \(G\) is a continuous function \(\gamma:(-\varepsilon,\varepsilon)\longrightarrow G\)
+  which is differentiable at 0 and also satisfies \(\gamma(s+t)=\gamma(s)\gamma(t)\)
+  whenever \(s,t,s+t\in(-\varepsilon,\varepsilon)\). If \(\varepsilon=\infty\), then \(\gamma:\R\longrightarrow G\)
+  is called a {\it one-parameter subgroup} of \(G\).
+\end{definition}
+
+\begin{proposition}
+  Let \(\gamma:(-\varepsilon,\varepsilon)\longrightarrow G\) be a one-parameter semigroup.
+  Then for every \(t\in(-\varepsilon,\varepsilon)\), \(\gamma\) is differentiable at \(t\),
+  and
+  \[ \gamma'(t)=\gamma'(0)\gamma(t)=\gamma(t)\gamma(0). \]
+\end{proposition}
+
+\begin{proposition}
+  Let \(\gamma:(-\varepsilon,\varepsilon)\longrightarrow G\) be a one-parameter semigroup.
+  Then there is a unique extension to a one-parameter group
+  \(\tilde{\gamma}:\R\longrightarrow G\).
+\end{proposition}
+
+\begin{proof}
+  Let \(t\in\R\). Then for a large enough natural number \(m\), \(t/m\) \(\in(-\varepsilon,\varepsilon)\),
+  hence \(\gamma(t/m),\gamma(t/m)^m\in G\). Similarly for a second natural number \(n\),
+  \(\gamma(t/n),\gamma(t/n)^n\in G\). Since \(mn\ge m\) and \(mn\ge n\), we also have \(t/mn\) \(\in(-\varepsilon,\varepsilon)\).
+  Therefore,
+  \begin{eqnarray*}
+    \gamma(t/n)^n &=& \gamma(mt/mn) \\
+                  &=& \gamma(t/mn)^{mn} \\
+                  &=& \gamma(nt/mn)^m \\
+                  &=& \gamma(t/m)^m
+  \end{eqnarray*}
+  Thus \(\gamma(t/n)^n=\gamma(t/m)^m\). This defines a function
+  \[ \tilde{\gamma}:\R\longrightarrow G;\hspace{10px} \tilde{\gamma}(t)=\gamma(t/n)^n \]
+  for large n. It is easy to see that \(\tilde{\gamma}\) is an one-parameter subgroup in \(G\).
+\end{proof}
+
+\begin{theorem}
+  Let \(\gamma:\R\longrightarrow G\) be a one-parameter group in \(G\). Then it has the
+  form \(\gamma(t)=\exp(tA)\) for some \(A\in M_n(\K)\).
+\end{theorem}
+
+\begin{proof}
+  Let \(A=\gamma'(0)\). Since \(\gamma\) satisfies the differential equation \(\gamma'(t)=\gamma(t)A\),
+  \(\gamma(0)=A\), by Theorem \ref{thm:exp}, this equation has a unique
+  solution \(\gamma(t)=\exp(tA)\).
+\end{proof}
+
+\[ \blacktriangle \blacktriangledown \blacktriangle \]
