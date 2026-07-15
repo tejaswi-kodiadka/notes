@@ -1,3 +1,260 @@
 \chapter{Lie Algebras and Tangent Spaces}
 
+\section{Lie Algebras}
+
+\begin{definition}
+  A {\it Lie algebra over \(\K\)} consists of a vector space \(\mathfrak{a}\) over a field
+  \(\K\), together with a bilinear map \([\hspace{2px},]:\mathfrak{a}\times\mathfrak{a}\longrightarrow\mathfrak{a}\)
+  called the {\it Lie bracket}, such that for \(x,y,z\in\mathfrak{a}\),
+  \begin{eqnarray*}
+    &[x,y]=-[y,x], \\
+    \text{and } &[x,[y,z]]+[y,[x,z]]+[z,[x,y]]=0
+  \end{eqnarray*}
+\end{definition}
+
+Given two matrices \(A,B\in M_n(\K)\), thier {\it commutator} is the {\it Lie Bracket}
+is the matrix \([A,B]=AB-BA\). This defines a bilinear function
+\[ [\hspace{2px},]:M_n(\K)\times M_n(\K)\longrightarrow M_n(\K);\hspace{10px} (A,B)\mapsto [A,B] \]
+which easily satisfies the definition. Hence \(M_n(\K)\) is a Lie algebra over \(\K\) with
+the commutator as it's Lie bracket.
+
+If all brackets in a Lie algebra are trivial, it is called {\it abelian}.
+We further devolop some of the basic algebraic notions of Lie algebra theory, analogous
+to the basic theory of groups and rings.
+
+\begin{definition}
+  If \(\mathfrak{a}\) is a Lie algebra over \(\K\), then a subspace \(\mathfrak{b}\subseteq\mathfrak{a}\)
+  is a {\it Lie subalgebra} of \(\mathfrak{a}\) if it is closed under the Lie bracket, that is,
+  whenever \(x,y\in\mathfrak{b}\), \([x,y]\in\mathfrak{b}\); we write \(\mathfrak{b}\le\mathfrak{a}\).
+\end{definition}
+
+\(\mathfrak{a}\) is a Lie subalgebra of itself, and so is \(\{0\}\).
+
+\begin{definition}
+  If \(\mathfrak{a}\) is a Lie algebra over \(\K\), then a vector subspace \(\mathfrak{n}\subseteq\mathfrak{a}\)
+  is a {\it Lie ideal} of \(\mathfrak{a}\), given \([z,x]\in\mathfrak{n}\) for all
+  \(z\in\mathfrak{n}\) and \(x\in\mathfrak{a}\); we then write \(\mathfrak{n}\vartriangleleft\mathfrak{a}\).
+\end{definition}
+
+A Lie ideal is {\it proper} if \(\mathfrak{n}\ne\mathfrak{a}\), and is {\it non-trivial}
+if \(\mathfrak{n}\ne 0\).
+
+\begin{definition}
+  The {\it centre} of \(\mathfrak{a}\) is the subset
+  \[ z(\mathfrak{a})=\{z\in\mathfrak{a}:\forall x\in\mathfrak{a}, [z,x]=0\} \]
+\end{definition}
+
+\begin{definition}
+  The {\it derived subalgebra} \(\mathfrak{a}'\le\mathfrak{a}\) is the vector subspace
+  spanned by all the brackets \([x,y]\), \(x,y\in\mathfrak{a}\).
+\end{definition}
+
+\begin{proposition}
+  \(z(\mathfrak{a})\) and \(\mathfrak{a}'\) are Lie ideals of \(\mathfrak{a}\).
+\end{proposition}
+
+\begin{definition}
+  A Lie algebra is simple if every proper ideal of the Lie algebra is trivial.
+\end{definition}
+
+\begin{definition}
+  Let \(\mathfrak{g},\mathfrak{h}\) be Lie algebras. A linear transformation \(\phi:\mathfrak{g}\longrightarrow\mathfrak{h}\)
+  is a {\it homomorphism of Lie algebras} is for all \(x,y\in\mathfrak{g}\),
+  \(\phi([x,y])=[\phi(x),\phi(y)]\).
+\end{definition}
+
+\begin{proposition}
+  Let \(\phi:\mathfrak{a}\longrightarrow\mathfrak{b}\) be a homomorphism of Lie algebras. Then
+  \(\text{ker }\phi\vartriangleleft\mathfrak{a}\) and there is an isomorphism \(\text{im }\phi\cong\mathfrak{a}/\text{ker }\phi\).
+\end{proposition}
+
+\section{Curves and Tangent Spaces}
+
+Throughout this section, let \(G\subseteq GL_n(\K)\) be a matrix group.
+
+\begin{definition}
+  The {\it tangent space} to \(G\) at \(U\in G\) is
+  \[ T_UG={\gamma'(0)\in M_n(\K):\gamma\text{ is a differentiable curve in }G\text{ with }\gamma(0)=U} \]
+\end{definition}
+
+\begin{proposition}
+  \(T_UG\) is a real vector subspace of \(M_n(\K)\).
+\end{proposition}
+
+\begin{proof}
+  Suppose \(\alpha,\beta\) are differentiable curves in \(G\) for which\(\alpha(0)=\beta(0)=U\).
+  Then
+  \[ \gamma:\text{dom }\alpha\cap\text{dom }\beta\longrightarrow G;\hspace{10px}\gamma(t)=\alpha(t)U^{-1}\beta(t) \]
+  is also a differentiable curve in \(G\) with \(\gamma(0)=U\). Now,
+  \[ \gamma'(t)=\alpha'(t)U^{-1}\beta(t)+\alpha(t)U^{-1}\beta'(t) \]
+  Hence \(\gamma'(0)=\alpha'(0)+\beta'(0)\), which shows that \(T_UG\) is closed under addition.
+
+  Similarly, if \(r\in\R\) and \(\alpha\) is a differentiable curve in \(G\) with \(\alpha(0)=U\),
+  then \(\eta(t)=\alpha(rt)\) defines another such curve. Since \(\eta'(0)=r\alpha'(0)\),
+  we see that \(T_UG\) is closed under real scaler multiplication.
+\end{proof}
+
+\begin{definition}
+  The {\it dimension} of a real matrix group \(G\) is \(\text{dim }G=\text{dim}_{\R}T_IG\).
+  If \(G\) is complex, then its {\it complex dimension} is \(\text{dim}_{\C}G=\text{dim}_{\C}T_IG\).
+\end{definition}
+
+We denote \(T_IG=\mathfrak{g}\). In fact, \(\mathfrak{g}\) has the algebraiic structure of a
+real Lie algebra.
+
+\begin{theorem}
+  If \(G\) is a matrix subgroup, then \(\mathfrak{g}=T_IG\) is a real Lie subalgebra of
+  \(M_n(\K)\). If \(G\) is complex matrix subgroup and \(\mathfrak{g}\) is a subspace of \(M_n(\C)\),
+  then \(\mathfrak{g}\) is a complex Lie subalgebra.
+  \label{thm:lie}
+\end{theorem}
+
+\begin{proof}
+  We will show that for differentiable curves \(\alpha,\beta\) in \(G\) which satisfy
+  \(\alpha(0)=\beta(0)=I_n\), there is another such curve \(\gamma\) with \(\gamma'(0)=[\alpha'(0),\beta'(0)]\).
+
+  Consider the function
+  \[ F:\text{dom }\alpha\times\text{dom }\beta\longrightarrow G;\hspace{10px}F(s,t)=\alpha(s)\beta(t)\alpha(s)^{-1}. \]
+  This curve is clearly continuous and differentiable with respect to each of the variables
+  \(s\) and \(t\). For each \(s\in\text{dom }\alpha\), the function \(F(s,\hspace{3px}):\text{dom }\beta\longrightarrow G\)
+  is a differentiable curve in \(G\) with \(F(s,0)=I_n\). On differentiating we find
+  \[\frac{\text{d}}{\text{d}t|}_{t=0}F(s,t)=\alpha(s)\beta'(0)\alpha(s)^{-1}, \]
+  and so \(\alpha(s)\beta'(0)\alpha(s)^{-1} \in \mathfrak{g}\). Since \(\mathfrak{g}\) is a
+  closed subspace of \(M_n(\K)\), whenever this limit exists, we also have
+  \[ \lim_{s\rightarrow 0}\frac{1}{s}(\alpha(s)\beta'(0)\alpha(s)^{-1}-\beta'(0))\in\mathfrak{g}. \]
+  Using the matrix rule for differentiating an inverse, we have
+
+  \begin{eqnarray*}
+    \lim_{s\rightarrow0}\frac{1}{s}(\alpha(s)\beta'(0)\alpha(s)^{-1}-\beta'(0))
+    &=& \frac{\text{d}}{\text{d}s|}_{s=0} \alpha(s)\beta'(0)\alpha(s)^{-1} \\
+    &=& \alpha'(0)\beta'(0)\alpha(0)-\alpha(0)\beta'(0)\alpha(0)^{-1}\alpha'(0)\alpha(0)^{-1} \\
+    &=& \alpha'(0)\beta'(0)-\beta'(0)\alpha'(0) \\
+    &=& [\alpha'(0),\beta'(0)]
+  \end{eqnarray*}
+
+  Hence \([\alpha'(0),\beta'(0)]\) must be the form \(\gamma'(0)\) for some differentiable curve.
+\end{proof}
+
+So for each matrix group \(G\) there is a Lie algebra \(\mathfrak{g}=T_IG\). A suitable type
+of homomorphism \(G\longrightarrow H\) between matrix groups gives rise to a linear
+transfromation \(\mathfrak{g}\longrightarrow\mathfrak{h}\) which is a homomorphism of Lie
+algebras.
+
+\begin{definition}
+  Let \(G,H\) be matrix groups, and \(\varphi:G\longrightarrow H\) be a continuous map.
+  Then \(\varphi\) is said to be a {\it differentiable map} if, for every differentiable curve
+  \(\gamma:(a,b)\longrightarrow G\), the curve \(\varphi\circ\gamma:(a,b)\longrightarrow H\)
+  is differentiable and has derivative \((\varphi\circ\gamma)'(t)=\frac{\text{d}}{\text{d}t}\varphi(\gamma(t))\);
+  and if two differentiable curves satisfy \(\alpha(0)=\beta(0)\), and \(\alpha'(0)=\beta'(0)\),
+  then \((\varphi\circ\alpha)'(0)=(\varphi\circ\beta)'(0)\).
+\end{definition}
+
+A differentiable map which is alsp a group homomorphism is called a {\it differential homomorphism}.
+A continuous homomorphism of matrix groups that is also differentiable is called a {\it Lie homomorphism}.
+
+\begin{proposition}
+  Let \(G,H,K\) be matrix groups with \(\varphi:G\longrightarrow H\) and \(\theta:H\longrightarrow K\)
+  differential homomorphisms. Then,
+  \begin{itemize}
+    \item[\((i)\)] for each \(A\in G\), there is a real linear transformation \(\text{d}\varphi_A:T_AG\longrightarrow T_{\varphi(A)}H\)
+      given by \(\text{d}\varphi_A(\gamma'(0))=(\varphi\circ\gamma)'(0)\), for every differentiable
+      curve \(\gamma:(a,b)\longrightarrow G\) with \(\gamma(0)=A\);
+    \item[\((ii)\)] we have \(\text{d}\theta_{\varphi(A)}\circ\text{d}\varphi_A=\text{d}(\theta\circ\varphi)_A\);
+    \item[\((iii)\)] for the identity map \(Id_G\), \(\text{d}Id_G=Id_{T_AG}\).
+  \end{itemize}
+\end{proposition}
+
+\begin{theorem}
+  Let \(G,H\) be matrix groups and \(\varphi:G\longrightarrow H\) be a differential homomorphism.
+  The the derivative \(\text{d}\varphi:\mathfrak{g}\longrightarrow\mathfrak{h}\) is a
+  homomorphism of Lie algebras.
+\end{theorem}
+
+\begin{proof}
+  Following the ideas and notations from the proof of theorem \ref{thm:lie},for
+  differentiable curves \(\alpha,\beta\) in \(G\) with \(\alpha(0)=\beta(0)=I\), we can use
+  the composite function \(\varphi\circ F\) given by
+  \[ \varphi\circ F(s,t)=\varphi(F(s,t))=\varphi(]alpha(s))\varphi(\beta(s))\varphi(\alpha(s))^{-1} \]
+  t0 deduce that
+  \[\text{d}\varphi\left([\alpha'(0),\beta'(0)]\right)=[\text{d}\varphi(\alpha'(0)),\text{d}\varphi(\beta'(0))]. \]
+\end{proof}
+
+\section{Lie Algebras of Some Matrix Groups}
+
+Here we determine the Lie algebras of some important familes of real and complex matrix
+groups.
+
+\begin{enumerate}
+  \item {\bf General and Special Linear Groups}
+
+  \item {\bf Upper Triangular and Unipotent Groups}
+
+  \item {\bf Affine Groups}
+
+  \item {\bf Orthagonal and Special Orthangonal Groups}
+
+  \item {\bf Unitary and Special Unitary Groups}
+
+  \item {\bf Quaternionic Symplectic Group}
+
+\end{enumerate}
+
+\section{\(SO(3)\) and \(SU(2)\)}
+
+The lie algebras \(\mathfrak{so}(3)\) and \(\mathfrak{su}(2)\) are both 3-dimensional
+vector spaces, for example with the following bases:
+\[ \mathfrak{so}(3):\hspace{10px}
+  P=
+  \left[\begin{array}{ccc}
+      0 & -1 & 0 \\
+      1 & 0 & 0 \\
+      0 & 0 & 0
+  \end{array}\right],\hspace{10px}
+  Q=
+  \left[\begin{array}{ccc}
+      0 & 0 & -1 \\
+      0 & 0 & 0 \\
+      1 & 0 & 0
+  \end{array}\right],\hspace{10px}
+  R=
+  \left[\begin{array}{ccc}
+      0 & 0 & 0 \\
+      0 & 0 & -1 \\
+      0 & 1 & 0
+  \end{array}\right],
+\]
+\[ \mathfrak{su}(2):\hspace{10px}
+  H=\frac{1}{2}
+  \left[\begin{array}{cc}
+      i & 0 \\
+      0 & -i
+  \end{array}\right],\hspace{10px}
+  E=\frac{1}{2}
+  \left[\begin{array}{cc}
+      0 & 1 \\
+      -1 & 0
+  \end{array}\right],\hspace{10px}
+  F=\frac{1}{2}
+  \left[\begin{array}{cc}
+      0 & i \\
+      i & 0
+  \end{array}\right].
+\]
+
+The non trivial Lie brackets among these are,
+\[ [P,Q]=R,\hspace{5px}[Q,R]=P,\hspace{5px}[R,P]=Q, \]
+\[ [H,E]=F,\hspace{5px}[E,F]=H,\hspace{5px}[F.H]=E. \]
+This implies that the real linear isomorphism \(\varphi:\mathfrak{su}(2)\longrightarrow\mathfrak{so}(3)\);
+\[ \varphi(xH+yE+zF)=xP+yQ+zR \hspace{10px} (x,y,z)\in\R \]
+satisfies \(\varphi([U,V])=[\varphi(U),\varphi(V)]\), so is an isomorphism of real Lie Algebras.
+Thus these Lie algebras look the same algebraically. This suggests that there might be a
+close relationships between the groups themselves. Notice also that both \(\mathfrak{su}(2)\)
+and \(\mathfrak{so}(3)\) are isomorphic to \(\R^3\) with the vector cross product as its
+Lie bracket.
+
+
+
+
+\section{Complexification of a Real Lie Algebra}
+
 \[ \blacktriangle \blacktriangledown \blacktriangle \]
