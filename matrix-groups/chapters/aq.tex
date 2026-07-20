@@ -1,0 +1,133 @@
+\chapter{Algebras and Quaternions}
+
+\section{Algebras}
+
+\begin{definition}
+  A {\it finite dimensional algebra \(A\)} is a finite dimesional vecotr space over \(\K\)
+  which is also an associative and unial ring such that for all \(r,s\in\K\) and
+  \(a,b\in A\), \((ra)(sb)=(rs)(ab)\).
+\end{definition}
+
+If every non-zero element \(u\in A\) is invertible, then \(A\) is a {\it division algebra over \(\K\)}.
+
+\begin{definition}
+  Let \(A\) and \(B\) be two algebras over \(\K\). A linear transformation \(\varphi:A\longrightarrow B\)
+  that is also a ring homomorphism i scalled a {\it homomorphism of algebras}.
+\end{definition}
+
+\begin{definition}
+  An algebra \(A\) is simple if it has only one proper two-sided ideal, namely
+  (0).
+\end{definition}
+
+\begin{proposition}
+  Let \(\K\) be a field.
+  \begin{itemize}
+    \item[\((i)\)] For a division algebra \(\mathbb{D}\) over \(\K\), \(\mathbb{D}\) is
+      simple.
+    \item[\((ii)\)] For a simple algebra \(A\) over \(\K\), \(M_n(A)\) is simple.
+  \end{itemize}
+\end{proposition}
+
+\begin{theorem}[Wedderburn's Theorem]
+  Let \(A\) be a finite dimensional simple algebra over \(\K\).
+  \begin{itemize}
+    \item[\((i)\)] \(A\) is isomorphic to some \(M_n(\mathbb{D})\).
+    \item[\((ii)\)] If \(\K\) is algenraically closed, then \(A\) is isomorphic to some
+      \(M_n(\K)\).
+    \item[\((i)\)] Every finite dimensional division algebra \(\mathbb{D}\) over \(\K\) has
+      dimension of the form \(\text{dim}_{\K}\mathbb{D}=d^2\) for some \(d\in\N\).
+  \end{itemize}
+\end{theorem}
+
+\begin{proposition}
+  A finite dimensional algebra \(A\) is a product of \(l\) algebras {\it iff} there are
+  orthagonal central idempotents \(e_1,\dots,e_l\) such that \(e_1+\cdots+e_l=1\).
+\end{proposition}
+
+\begin{definition}
+  An algebra \(A\) is {\it semi-simple} if it is a product of simple algebras \(A_k\),
+  \[ A=A_1\times\cdots\times A_l \]
+\end{definition}
+
+\begin{proposition}
+  A finite dimensional algebra \(A\) is semi-simple {\it iff} there are indecomposible orthagonal
+  central idempotents \(e_1,\dots,e_l\) such that \(e_1+\cdots+e_l=1\).
+\end{proposition}
+
+\section{Linear Algebra over Division Algebras}
+Let \(\D\) be a finite dimensional division algebra over a field \(\K\).
+
+\begin{definition}
+  A (right) vector spcae \(V\) over \(\D\) is an abelian group with a right scalar
+  multiplication by elements of \(D\) so that for \(u,v\in V\), \(x,y\in\D\),
+  \begin{eqnarray*}
+    v(xy) &=& (vx)y \\
+    v(x+y) &=& vx + vy \\
+    (u+v)x &=& ux+vx \\
+    v1 &=& v
+  \end{eqnarray*}
+\end{definition}
+
+All obvious notions of linear transformations, subspace, kernels, and images make sense,
+as do those of spanning sets and linear independence over \(\D\). The definitions of basis,
+dimension, and matrices of linear transformatins are similar to that of vector spaces over
+fields.
+
+For a division algebra \(\D\), each matrix \(A\in M_n(\D)\) acts by multiplication on the
+left of \(\D^n\). For any subfield \(\K_1\subseteq\D\) containing \(\K\), \(A\) induces
+a (right) linear transformation over \(\K\), 
+\[ \D^n\longrightarrow\D^n;\hspace{10px} x\mapsto Ax. \]
+If we choose a basis over \(\K_1\) for \(\D\), \(A\) gives rise to a matrix \(\Lambda_A\in M_{nd}(\K_1)\)
+where \(d=\text{dim}_{\K_1}\D\). \(A\) is invertible in \(M_n(\D)\) {\it iff} \(\Lambda_A\) is
+invertible. Hence to determine invertibility of \(A\), it suffices to consider \(\text{det }\Lambda_A\).
+
+The resulting function
+\[ \text{Rdet}_{\K_1}: M_n(\D)\longrightarrow \K_1;\hspace{10px}\text{Rdet}_{\K_1}(A)=\text{det }\Lambda_A \]
+is called the {\it reduced determinant} of \(M_n(\D)\), and it is a group homomorphism.
+
+\section{Quaternions}
+
+\begin{proposition}
+  If \(A\) is a finite dimensional commutative division algebra over \(\R\),
+  then either \(A=\R\) or there is an isomorphism of real algebra auch that \(A\cong\C\).
+\end{proposition}
+
+\begin{proof}
+\end{proof}
+
+However, the quesion of what finite dimesnional division algebra over \(\R\) exist is
+less easy to decide. In fact, there is only one other upto an isomorphism, the skew-field
+of quaternions, denoted \(\Q\). We will construct \(\Q\) as a ring of \(2\times 2\) complex
+matrices.
+
+Let
+\[ \Q=\left\{ \left[\begin{array}{cc} z & w \\ -\bar{w} & \bar{z}\end{array}\right]:z,w\in\C \right\} \subseteq M_2(\C). \]
+\(\Q\) is a subring of \(M_2(\C)\), and in fact a reaal subalgebra of \(M_2(\C)\).
+It also contains a copy of \(\C\), namely the subalgebra
+\[ \left\{\left[\begin{array}{cc} z & 0 \\ 0 & \bar{z} \end{array}\right]:z\in\C\right\}\subseteq\Q. \]
+However, \(\Q\) is not an algebra over \(\C\).
+
+An element of \(\Q\) is invertible {\it iff} it is an invertible as a matrix. It is useful
+to denote a norm in \(\Q\) as
+\[ |H|=\text{det }\left[\begin{array}{cc} z & w \\ -\bar{w} & \bar{z} \end{array}\right] = |z|^2+|w|^2. \]
+
+Then \( SU(2)=\{A\in\Q:|A|=1\}\le\Q^x\).
+
+As a basis of \(\Q\) over \(\R\), we have the matrices
+\[
+  1=I,\hspace{10px}
+  i=\left[\begin{array}{cc} i & 0 \\ 0 & -i \end{array}\right],\hspace{10px}
+  j=\left[\begin{array}{cc} 0 & 1 \\ -1 & 0 \end{array}\right],\hspace{10px}
+  k=\left[\begin{array}{cc} 0 & i \\ i & 0 \end{array}\right].
+\]
+These satisfy the equations
+\[ i^2=j^2=k^2=-1,\hspace{10px} ij=k=-ji,\hspace{10px} jk=i=-kj,\hspace{10px} ki=j=-ik. \]
+
+
+
+\section{Quaternionic Matrix Groups}
+
+\section{Automorphism Groups of Algebras}
+
+\[ \blacktriangle \blacktriangledown \blacktriangle \]
