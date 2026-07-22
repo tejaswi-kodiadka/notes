@@ -112,7 +112,7 @@ An element of \(\Q\) is invertible {\it iff} it is an invertible as a matrix. It
 to denote a norm in \(\Q\) as
 \[ |H|=\text{det }\left[\begin{array}{cc} z & w \\ -\bar{w} & \bar{z} \end{array}\right] = |z|^2+|w|^2. \]
 
-Then \( SU(2)=\{A\in\Q:|A|=1\}\le\Q^x\).
+Then \( SU(2)=\{A\in\Q:|A|=1\}\le\Q^{\times}\).
 
 As a basis of \(\Q\) over \(\R\), we have the matrices
 \[
@@ -123,6 +123,38 @@ As a basis of \(\Q\) over \(\R\), we have the matrices
 \]
 These satisfy the equations
 \[ i^2=j^2=k^2=-1,\hspace{10px} ij=k=-ji,\hspace{10px} jk=i=-kj,\hspace{10px} ki=j=-ik. \]
+
+From now on we will write quaternions in the form
+\[ q = xi + yj + zk +t1 \]
+q is a pure quaternion {\it iff} t=0.
+
+There is a quternionic analogue of complex conjugation, namely
+\[ q = xi + yj + zk +t1 \mapsto  \bar{q} = -xi - yj - zk +t1\]
+
+This satisfies the properties
+\begin{eqnarray*}
+  \overline{q_1+q_2} &=& \overline{q}_1+\overline{q}_2 \\
+  \overline{q_1q_2} &=& \overline{q}_1\overline{q}_2 \\
+  \overline{q}=q &\Longleftrightarrow& \text{ q is a real quaternion}; \\
+  \overline{q}=-q &\Longleftrightarrow& \text{ q is a pure quaternion}.
+\end{eqnarray*}
+
+The inverse of a non-zero quaternion can be written as
+\[ q^{-1}=\frac{\overline{q}}{q\overline{q}} \]
+
+In terms of the matrix description of \(\Q\), quaternionic conjugation is given by the
+hermitian conjugation,
+\[
+  \left[\begin{array}{cc}
+      z & w \\
+      -\bar{w} & \bar{z}
+  \end{array}\right]
+  \mapsto
+  \left[\begin{array}{cc}
+      \bar{z} & -w \\
+      \bar{w} & z
+  \end{array}\right].
+\]
 
 
 
