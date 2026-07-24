@@ -94,6 +94,39 @@ is called the {\it reduced determinant} of \(M_n(\D)\), and it is a group homomo
 \end{proposition}
 
 \begin{proof}
+  Let \(\alpha\in A\). Since \(A\) is a finite dimensional real vector spaces, the powers
+  of \(\alpha\) must be linearly dependent, sasy
+  \[ t_0+t_1\alpha+\cdots+t_m\alpha^m=0 \]
+  for some \(t_j\in\R\) with \(m\ge 1\) and \(t_m\ne 0\). We can choose \(m\) to be
+  minimal with these properties. If \(t_0=0\), then
+  \[ t_1+t_2\alpha+t_3\alpha^2+\cdots+t_m\alpha^{m-1}=0 \],
+  contradicting the minimality of \(m\); so \(t_0\ne 0\). in fact, the polynomial
+  \[ p(X)=t_0+t_1X+\cdots+t_mX^m \in\R[X] \]
+  is irreducible. TO see this, wuppose that \(p(X)=p_1(X)p_2(X)\); then as \(A\) is a
+  division algebra, either \(p_1(\alpha)=0\) or \(p_2(\alpha)=0\), contradicting minimality
+  of \(m\) if both \(\text{deg }p_1(X)>0\) and \(\text{deg }p_2(X)>0\).
+
+  Consider the real subspace
+  \[ \R(\alpha)=\left\{\sum_{j=0}^k s_j\alpha^j:s_j\in\R\right\}\subseteq A. \]
+  Then \(\R(\alpha)\) is easily seen to be a real subalgebra of \(A\) and the elements
+  \(1,\alpha,\dots,\alpha^{m-1}\) form a basis, hence \(\text{dim}_{\R}\R(\alpha)=m\).
+
+  Let \(\gamma\in\C\) be any complex root of the irreducible polynomial
+  \[ t_0+t_1X+\cdots+t_mX^m \in\R[X]. \]
+  There is a real linear transformation which is actualy an injection,
+  \[ \varphi:\R(\alpha)\longrightarrow\C;\hspace{10px}\varphi\left(\sum_{j=0}^{m-1} s_j\alpha^j\right) = \sum_{j=0}^{m-1}s_j\gamma^j. \]
+  It is easy to see thaat this is actually a homomorphism of real algebras. Hence
+  \(\varphi(\R(\alpha))\subseteq\C\) is a subalgebra. But as \(\text{dim}_{\R}\C=2\),
+  this implies that \(m=\text{dim}_{\R}\R(\alpha)\le 2\). If \(m=1\), \(\alpha\in\R\).
+  If \(m=2\), then \(\varphi(\R(\alpha))=\C\).
+
+  So either \(\text{dim}_{\R}A=1\) and \(A=\R\), or \(\text{dim}_{\R}A>1\) and we can
+  choose an \(\alpha\in A\) with \(\C\cong\R(\alpha)\). This means that we can view \(A\)
+  as a finite dimensional complex algebra. Now for any \(\beta\in A\) there is polynomial
+  \[ q(X)=u_0+u_1X+\cdots+u_lX^l\in\C[X] \]
+  with \(l\ge 1\) and \(u_l\ne 0\).Again choosing \(l\) to be minimal with this
+  property, \(q(X)\) is irreducible. But then sinec \(q(X)\) has a root in \(\C\),
+  \(l=1\) and \(\beta\in\C\). This shows that \(A=\C\) whenever \(\text{dim}_{\R}A>1\).
 \end{proof}
 
 However, the quesion of what finite dimesnional division algebra over \(\R\) exist is
@@ -156,9 +189,16 @@ hermitian conjugation,
   \end{array}\right].
 \]
 
-
-
 \section{Quaternionic Matrix Groups}
+The above norm || on \(\Q\) extends to a norm on \(\Q^n\), viewed as a right \(\Q\)-vector
+space. We can define a quaternionic inner product on \(\Q\) by
+\[ x\cdot y=x^*y=\sum_{r=1}^n \bar{x}_ry_r, \]
+where we define the {\it quaternionic conjugate} of a vector by
+\[ \left[\begin{array}{c} x_1 \\ x_2 \\ \vdots \\ x_n \end{array}\right]^* = [\begin{array}{cccc} \bar{x}_1 & \bar{x}_2 & \cdots & \bar{x}_n \end{array}]. \]
+
+Similarly, for any matrix \([a_{ij}]\) over \(\Q\) we can define \([a_{ij}]^*=[\bar{a}_{ji}].\)
+
+The length of \(x\in\Q^n\) is defined to be \(|x|=\sqrt{x*x}\).
 
 \section{Automorphism Groups of Algebras}
 
